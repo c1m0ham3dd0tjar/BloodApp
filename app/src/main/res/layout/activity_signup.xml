@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintParent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:visibility="invisible">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarSignupActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSignupTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/signup_title"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="@id/toolbarSignupActivity"
+        app:layout_constraintTop_toBottomOf="@id/toolbarSignupActivity" />
+
+    <TextView
+        android:id="@+id/tvSignupSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/signup_subitle"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintStart_toStartOf="@+id/tvSignupTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvSignupTitle" />
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSignupSubtitle">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailSignupTextField"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/emailHint"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconDrawable="@drawable/ic_account_email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailSignupTextEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_white"
+                    android:fontFamily="sans-serif-thin"
+                    android:imeOptions="actionNext"
+                    android:inputType="textImeMultiLine|textEmailAddress"
+                    android:privateImeOptions="disableSticker=true;disableGifKeyboard=true"
+                    android:textSize="20sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passSignupTextField"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/passwordHint"
+                app:endIconDrawable="@drawable/ic_make_password_visible"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/emailSignupTextField"
+                app:layout_constraintStart_toStartOf="@+id/emailSignupTextField"
+                app:layout_constraintTop_toBottomOf="@+id/emailSignupTextField"
+                app:startIconDrawable="@drawable/ic_account_password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passSignupTextEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_white"
+                    android:fontFamily="sans-serif-thin"
+                    android:imeOptions="actionNext"
+                    android:inputType="textImeMultiLine|textPassword|textAutoCorrect"
+                    android:textSize="20sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/confirmPassTextField"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/confirm_password_hint"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/passSignupTextField"
+                app:layout_constraintStart_toStartOf="@+id/passSignupTextField"
+                app:layout_constraintTop_toBottomOf="@+id/passSignupTextField"
+                app:startIconDrawable="@drawable/ic_account_password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/confirmPassTextEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_white"
+                    android:fontFamily="sans-serif-thin"
+                    android:imeOptions="actionNext"
+                    android:inputType="textImeMultiLine|textPassword"
+                    android:textSize="20sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameTextField"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/name_string"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/confirmPassTextField"
+                app:layout_constraintStart_toStartOf="@id/confirmPassTextField"
+                app:layout_constraintTop_toBottomOf="@id/confirmPassTextField"
+                app:startIconDrawable="@drawable/ic_account_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameTxtEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_white"
+                    android:fontFamily="sans-serif-thin"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textSize="20sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phoneTextField"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/phone_hint"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/nameTextField"
+                app:layout_constraintStart_toStartOf="@+id/nameTextField"
+                app:layout_constraintTop_toBottomOf="@+id/nameTextField"
+                app:startIconDrawable="@drawable/ic_account_phone">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phoneTxtEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_white"
+                    android:fontFamily="sans-serif-thin"
+                    android:imeOptions="actionDone"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:textSize="20sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvWhatBloodType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/what_blood_Type"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/phoneTextField"
+                app:layout_constraintTop_toBottomOf="@id/phoneTextField" />
+
+            <RadioGroup
+                android:id="@+id/radioBloodType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvWhatBloodType"
+                app:layout_constraintTop_toBottomOf="@+id/tvWhatBloodType">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioType0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bloodType0" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioTypeA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bloodTypeA" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioTypeB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bloodTypeB" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioTypeAB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bloodTypeAB" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioTypeNotSure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bloodTypeNotSure"
+                    android:checked="true"/>
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tvWhatRH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/what_RH"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioBloodType" />
+
+            <RadioGroup
+                android:id="@+id/radioRH"
+                android:layout_width="395dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/tvWhatRH"
+                app:layout_constraintTop_toBottomOf="@+id/tvWhatRH">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioPositiveRH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/positive_RH" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioNegativeRH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/negative_RH" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioRHNotSure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/not_sure_RH"
+                    android:checked="true"/>
+
+            </RadioGroup>
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkBoxAvailable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:buttonTint="@color/colorPrimary"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/available_question"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/radioRH"
+                app:layout_constraintTop_toBottomOf="@+id/radioRH" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkBoxUnderage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:buttonTint="@color/colorPrimary"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/underage_agreement"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                app:flow_wrapMode="aligned"
+                app:layout_constraintStart_toStartOf="@+id/checkBoxAvailable"
+                app:layout_constraintTop_toBottomOf="@+id/checkBoxAvailable" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSignUp"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="64dp"
+                android:layout_marginBottom="160dp"
+                android:onClick="registerUser"
+                android:text="@string/signup_button_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/checkBoxUnderage" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

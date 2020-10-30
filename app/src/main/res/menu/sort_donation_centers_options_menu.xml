@@ -1,0 +1,14 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/sortByName"
+    android:title="@string/string_sort_by_name"
+    app:showAsAction="always" />
+
+<item android:id="@+id/sortByLocation"
+    android:title="@string/string_sort_by_location"
+    app:showAsAction="always"/>
+
+    <item android:id="@+id/showAll"
+        android:title="@string/string_show_all"
+        app:showAsAction="always"/>
+</menu>

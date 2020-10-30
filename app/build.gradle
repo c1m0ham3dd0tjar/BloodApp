@@ -1,0 +1,129 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    defaultConfig {
+        applicationId "com.example.licenta"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        customDebugType {
+            debuggable true
+        }
+    }
+//    compileOptions {
+//        sourceCompatibility = 1.8
+//        targetCompatibility = 1.8
+//    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.3.0-alpha01'
+    implementation "androidx.appcompat:appcompat-resources:1.3.0-alpha02"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
+    implementation 'com.google.firebase:firebase-config:19.2.0'
+    implementation 'com.google.firebase:firebase-analytics:17.4.4'
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
+    implementation 'androidx.navigation:navigation-fragment:2.3.0'
+    implementation 'androidx.navigation:navigation-ui:2.3.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.google.android.material:material:1.3.0-alpha02'
+    implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
+
+    // Google location services API
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
+
+    // Don't forget to change the line below with the latest version of Parse SDK for Android
+    implementation "com.github.parse-community.Parse-SDK-Android:parse:1.23.1"
+    //noinspection GradleCompatible
+    implementation 'androidx.cardview:cardview:1.0.0'
+    //implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    //noinspection GradleCompatible
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'com.google.firebase:firebase-database:19.3.1'
+    implementation 'com.google.firebase:firebase-core:17.4.4'
+    implementation 'com.firebaseui:firebase-ui-database:4.2.1'
+    implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation 'com.wdullaer:materialdatetimepicker:4.2.0'
+
+
+    // Recicler view
+    //noinspection GradleCompatible
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // Circle imageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+
+    //implementation 'com.android.suport:design:28.0.0'
+    //implementation 'com.android.suport:cardview-v7:28.0.0'
+
+    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
+
+    implementation 'com.facebook.android:facebook-android-sdk:7.1.0'
+    implementation 'com.facebook.android:facebook-share:7.1.0'
+
+    // Load picture url from the internet
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.10'
+
+    // CameraX dependencies
+   // def camerax_version = "1.0.0-beta10"
+    implementation "androidx.camera:camera-camera2:1.0.0-beta10"
+    implementation "androidx.camera:camera-lifecycle:1.0.0-beta10"
+    implementation "androidx.camera:camera-view:1.0.0-alpha17"
+
+    // For scaning qr codes
+    dependencies {
+        implementation 'com.google.zxing:core:3.3.3'
+    }
+
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    google()
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://maven.google.com' }
+}

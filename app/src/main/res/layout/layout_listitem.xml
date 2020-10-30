@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp"
+    android:elevation="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/steadyLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgDonationCenterIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_blood_bank"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnColapseCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_expand_more"
+                app:layout_constraintBottom_toBottomOf="@+id/imgDonationCenterIcon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imgDonationCenterIcon" />
+
+            <TextView
+                android:id="@+id/tvCenterAdress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Strada Principatelor 3"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tvCenterName"
+                app:layout_constraintTop_toBottomOf="@+id/tvCenterName" />
+
+            <TextView
+                android:id="@+id/tvCenterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Centrul de donatii Bucuresti"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/imgDonationCenterIcon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/collapsibleLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/steadyLayout">
+
+            <TextView
+                android:id="@+id/tvPhoneNumbers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="51dp"
+                android:layout_marginTop="8dp"
+                android:text="0237677857"
+                android:textSize="12sp"
+                app:drawableStartCompat="@drawable/icon_phone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.027" />
+
+            <TextView
+                android:id="@+id/tvShowDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvPhoneNumbers"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvProgram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="7:30-12:30"
+                android:textSize="12sp"
+                app:drawableLeftCompat="@drawable/icon_time"
+                app:layout_constraintStart_toStartOf="@+id/tvPhoneNumbers"
+                app:layout_constraintTop_toBottomOf="@+id/tvPhoneNumbers" />
+
+            <TextView
+                android:id="@+id/tvShowState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Acum: deschis"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvProgram"
+                app:layout_constraintStart_toEndOf="@+id/tvProgram"
+                app:layout_constraintTop_toTopOf="@+id/tvProgram" />
+
+            <ImageView
+                android:id="@+id/imgNavigation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_navigation"
+                app:layout_constraintBottom_toBottomOf="@+id/imgAdress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imgAdress" />
+
+            <ImageView
+                android:id="@+id/imgAdress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_adress"
+                app:layout_constraintBottom_toBottomOf="@+id/tvProgram"
+                app:layout_constraintEnd_toStartOf="@+id/imgNavigation"
+                app:layout_constraintTop_toTopOf="@+id/tvProgram" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

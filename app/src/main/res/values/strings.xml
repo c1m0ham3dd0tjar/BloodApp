@@ -1,0 +1,186 @@
+<resources>
+    <string name="app_name">Licenta</string>
+
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+
+    <!-- Change the following strings as required -->
+    <string name="back4app_app_id">ZHOZe8lQajowQMZIdehBQW531g4dMIM0TI4OGEdk</string>
+    <string name="back4app_client_key">84vvTzW5tJ59ooOIbaM17XDeHuIrS8ItsOWoswP0</string>
+    <string name="emailHint">Email</string>
+    <string name="passwordHint">Parolă</string>
+
+    <string name="login_button">Login</string>
+    <string name="confirm_password_hint">Confirmă parola</string>
+    <string name="name_string">Nume</string>
+    <string name="surname_string">Prenume</string>
+    <string name="county_hint">Județ</string>
+    <string name="city_hint">Oraș</string>
+    <string name="donate_string">Mă înscriu ca donator</string>
+    <string name="signup_button">Înregistrare</string>
+    <string name="phone_hint">Număr de telefon</string>
+
+
+    <string name="home_tab_string">Acasă</string>
+    <string name="donate_tab_string">Donează</string>
+    <string name="request_tab_string">Solicită</string>
+    <string name="profile_tab_string">Profil</string>
+    <string name="title_activity_login2">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <string name="sign_up_firebase">Sign up firebase</string>
+    <string name="string_register">înscrie-te</string>
+    <string name="string_login">Conectează-te</string>
+    <string name="forgot_password">Ai uitat parola?</string>
+    <string name="reset_password">Resetează parola</string>
+    <string name="reset_button">Resetează</string>
+    <string name="title_activity_donation">DonationActivity</string>
+    <string name="tab_text_1">Unde donez</string>
+    <string name="tab_text_2">Cereri</string>
+    <string name="tab_text_3">Bla</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="create_request_title">"Solicită o donație "</string>
+    <string name="tvBloodType">Grupa de sânge</string>
+    <string name="tvUnitsNeeded">Cantitate</string>
+    <string name="tvPatientLocation">Locație</string>
+    <string name="tvQuestion">Donația solicitată este pentru un pacient anume?</string>
+    <string name="Da">yes</string>
+    <string name="yes">Da</string>
+    <string name="Nu">string/no</string>
+    <string name="No">Nu</string>
+    <string name="tvState">Nivel de urgență</string>
+
+    <string name="medium">Mediu</string>
+    <string name="high">Ridicat</string>
+    <string name="patient_name_hint">Nume și prenume</string>
+    <string name="alert_dialog_title_create_request">Salvați solicitarea?</string>
+    <string name="alert_dialog_create_request_negative_button">Anulează</string>
+    <string name="alert_dialog_create_request_positive_button">Salvează</string>
+    <string name="alert_dialog_create_reques_neutral_button">Înapoi</string>
+    <string name="btn_create_request">Salvează</string>
+    <string name="string_listitem_request_title">"Solicitare donație pentru "</string>
+    <string name="string_tv_helper">Pentru</string>
+    <string name="string_blood_units">Unități de sânge solicitate:</string>
+    <string name="string_blood_type">Grupă sânge:</string>
+    <string name="title_activity_request_details">RequestDetails</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="string_title_request_details">are nevoie de sânge.</string>
+
+
+    <string name="tracking_enabled_notif">Tracking is currently enabled. Tap to cancel.</string>
+    <string name="test_email">test@test.com</string>
+    <string name="test_password">testpassword</string>
+    <string name="firebase_path">location</string>
+    <string name="signup_title">Creează un cont nou</string>
+    <string name="signup_subitle">Datele tale vor fi întotdeauna în siguranță.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="signup_bar_label">Înregistrează-te</string>
+
+    <!--    Blood Types-->
+    <string name="bloodType0">0(I)</string>
+    <string name="bloodTypeA">A(II)</string>
+    <string name="bloodTypeB">B(III)</string>
+    <string name="bloodTypeAB">AB(IV)</string>
+    <string name="bloodTypeNotSure">Nu sunt sigur</string>
+    <string name="what_blood_Type">Care este grupa ta de sânge?</string>
+    <string name="what_RH">Care este RH-ul tău?</string>
+    <string name="positive_RH">Pozitiv</string>
+    <string name="negative_RH">Negativ</string>
+    <string name="not_sure_RH">Nu sunt sigur</string>
+    <string name="available_question">Doresc să figurez în lista donatorilor disponibili</string>
+    <string name="underage_agreement">Confirm că am împlinit minim 18 ani</string>
+    <string name="register_string">Gata</string>
+    <string name="signup_button_text">creează</string>
+    <string name="input_error">Acest câmp este obligatoriu</string>
+    <string name="input_error_wrong_email">Email-ul introdus nu este corect.</string>
+    <string name="input_error_wrong_password">Parola trebuie să aibă minim 8 caractere.</string>
+    <string name="input_error_mismatched_password">Parolele nu corespund.</string>
+    <string name="input_error_not_a_phone_number">Format incorect.</string>
+    <string name="not_checked">Trebuie să ai minim 18 ani.</string>
+    <string name="authentification_failed">Logare eșuată. Asigură-te că email-ul și parola introduse sunt corecte.</string>
+    <string name="signed_out">Te-ai deconectat!</string>
+    <string name="create_new_account">Încă nu ai un cont?</string>
+    <string name="cancel">Anulează</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="available_for_donations">Sunt disponibil pentru o donație.</string>
+    <string name="not_available_for_donations">Nu sunt disponibil pentru o donație.</string>
+    <string name="title_activity_edit_profile">EditProfileActivity</string>
+    <string name="blood_type_hint">Grupa de sânge</string>
+    <string name="name_too_short_error">Sunt necesare minim trei caractere.</string>
+    <string name="phone_hint_2">Număr de contact</string>
+    <string name="string_description">Oferiți mai multe detalii</string>
+    <string name="input_error_not_a_valid_name">Numele trebuie să conțină doar litere.</string>
+    <string name="incorrect_data">Datele introduse nu sunt corecte. Vă rugăm încercați din nou.</string>
+    <string name="donate_for">"Donează pentru "</string>
+    <string name="contact_center">Contactează  </string>
+    <string name="contact_requester">"Contactați pe "</string>
+    <string name="contact_requester_2">" pentru detalii."</string>
+    <string name="contact_center_2">" pentru programări și alte informații."</string>
+    <string name="units">unități</string>
+    <string name="show_all_hint">Arată toate</string>
+
+    <string name="facebook_app_id">1119071698487268</string>
+    <string name="facebook_login_protocol_scheme">fb1119071698487268</string>
+    <string name="e">efe</string>
+    <string name="my_requests">Cererile mele</string>
+    <string name="appointment">Programarea a fost salvată cu succes.</string>
+    <string name="appointment_failure">Programarea nu a fost salvată. Te rugăm să încerci din nou.</string>
+
+    <string name="qrConfirmation">Donația ta a fost confirmată. Gestul tău poate salva până la trei oameni! Mulțumim!</string>
+    <string name="confirmation">Confirmare</string>
+    <string name="string_ok">OK</string>
+    <string name="string_info">Info</string>
+    <string name="string_scanner_info">"După ce ai donat, caută afișul ce conține codul QR, la centrul de transfuzie la care te afli. Scanează codul pentru a confirma donația ta în aplicație.  "</string>
+    <string name="string_qr_scanning">Scanează codul QR</string>
+    <string name="string_donation_confirmed">Donația ta a fost confirmată în baza de date.</string>
+    <string name="string_error">Ceva nu a mers bine. Te rugăm să încerci din nou.</string>
+    <string name="string_delete">Șterge</string>
+    <string name="string_delete_appointment">Anulează programare</string>
+    <string name="string_are_you_sure">Sunteți sigur?</string>
+    <string name="string_confirmed_data">Datele au fost actualizate.</string>
+    <string name="string_cancel">Anulează</string>
+    <string name="string_confirmation_error">"Nu ai donat încă. Sunteți programat în "</string>
+    <string name="confirmation2">Confirmă</string>
+    <string name="open">Deschis</string>
+    <string name="closed">Închis</string>
+    <string name="string_call">Apelează</string>
+    <string name="string_fragment_donations_title">Centre de transfuzie sanguină din ţară</string>
+    <string name="string_appointment_error">"Aveți deja o programare făcută. "</string>
+    <string name="string_multiple_appointments_error">Aveți deja o programare făcută.</string>
+    <string name="string_show_all">Vezi toate</string>
+    <string name="string_sort_by_location">Vezi cele mai aproape</string>
+    <string name="string_sort_by_name">Vezi in ordine alfabetică</string>
+    <string name="string_units">unități</string>
+    <string name="string_patient_age">Vârstă</string>
+    <string name="string_man">Bărbat</string>
+    <string name="string_woman">Femeie</string>
+    <string name="string_required_date">Necesar până la </string>
+    <string name="string_set_required_date">Setează data</string>
+    <string name="string_details">Informații pacient</string>
+    <string name="string_required">Necesar</string>
+    <string name="string_required_upto_date">până la</string>
+    <string name="string_contact_donation_center">Contactează centrul de transfuzie</string>
+    <string name="years">ani</string>
+    <string name="string_contact">Contact</string>
+    <string name="string_make_an_appointment">Programează-te pentru o donație</string>
+    <string name="string_pick_a_date">Alege data</string>
+    <string name="string_you_choose">Ai ales:</string>
+    <string name="string_save">Salvează</string>
+    <string name="string_pick_hour">Alege ora</string>
+
+
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgNavigationCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_navigation_car"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgNavigationBike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:src="@drawable/ic_navigation_bike"
+        app:layout_constraintStart_toEndOf="@+id/imgNavigationWalk"
+        app:layout_constraintTop_toTopOf="@+id/imgNavigationWalk" />
+
+    <ImageView
+        android:id="@+id/imgNavigationWalk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:src="@drawable/ic_navigation_walk"
+        app:layout_constraintStart_toEndOf="@+id/imgNavigationCar"
+        app:layout_constraintTop_toTopOf="@+id/imgNavigationCar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
