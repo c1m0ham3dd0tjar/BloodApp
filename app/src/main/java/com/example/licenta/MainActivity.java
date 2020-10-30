@@ -105,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
         MaterialToolbar toolbar = findViewById(R.id.appToolbar);
         // Designate toolbar as the action bar for the activity
         setSupportActionBar(toolbar);
+
+        toolbar.setTitleTextColor(getResources().getColor(R.color.color_white));
         toolbar.setNavigationIcon(R.drawable.ic_action_profile);
         toolbar.setNavigationOnClickListener(v -> startActivity(new Intent(MainActivity.this, ProfileActivity.class)));
 

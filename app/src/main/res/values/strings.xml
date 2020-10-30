@@ -43,7 +43,7 @@
     <string name="title_activity_donation">DonationActivity</string>
     <string name="tab_text_1">Unde donez</string>
     <string name="tab_text_2">Cereri</string>
-    <string name="tab_text_3">Bla</string>
+    <string name="tab_text_3">Programări</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="create_request_title">"Solicită o donație "</string>
     <string name="tvBloodType">Grupa de sânge</string>
@@ -181,6 +181,10 @@
     <string name="string_you_choose">Ai ales:</string>
     <string name="string_save">Salvează</string>
     <string name="string_pick_hour">Alege ora</string>
+    <string name="string_sort_by">Sortează după</string>
+    <string name="string_app_title">BloodApp</string>
+    <string name="string_donate">Donează</string>
+    <string name="string_confirmation">Confirmare</string>
 
 
 </resources>

@@ -84,7 +84,10 @@ public class RequestDetails extends AppCompatActivity {
         btnSaveAppointment = findViewById(R.id.btnSaveAppointment);
         btnPickDate = findViewById(R.id.btnShowDateAndTimePicker);
         btnPickHour = findViewById(R.id.btnPickHour);
+
         toolbar = findViewById(R.id.toolBarRequestDetails);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.color_white));
+        setSupportActionBar(toolbar);
 
         tvUnitsNeeded = findViewById(R.id.tvUnitsNeededRequestDetails);
         tvRequesterPhoneNumber = findViewById(R.id.tvRequesterPhoneNumberRD);

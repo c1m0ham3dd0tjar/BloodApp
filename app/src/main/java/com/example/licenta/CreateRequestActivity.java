@@ -68,6 +68,7 @@ public class CreateRequestActivity extends AppCompatActivity {
     private boolean isDateSet = false;
     private LocalDate requiredUptoDate;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,6 +132,7 @@ public class CreateRequestActivity extends AppCompatActivity {
 
         // Set toolbar icon and navigation
         setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(getColor(R.color.color_white));
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_action_back));
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {

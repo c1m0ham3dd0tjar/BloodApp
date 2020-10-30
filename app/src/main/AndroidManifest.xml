@@ -23,7 +23,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CreateAppointment"></activity>
-        <activity android:name=".ScannerActivity" />
+        <activity android:name=".ScannerActivity"
+            android:label="@string/string_confirmation"/>
+
+        <activity android:name=".CreateRequestActivity"
+            android:label="Creează o cerere" />
+
         <activity
             android:name=".EditProfileActivity"
             android:label="@string/title_activity_edit_profile"
@@ -42,8 +47,8 @@
             <!-- tools:ignore="ExportedService"> -->
         </service>
 
-        <activity android:name=".RequestDetails" />
-        <activity android:name=".CreateRequestActivity" />
+        <activity android:name=".RequestDetails"
+            android:label="@string/string_donate"/>
         <activity android:name=".ForgotPasswordActivity" />
         <activity
             android:name=".SignupActivity"
@@ -51,7 +56,8 @@
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:label="@string/string_app_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -98,7 +99,7 @@ public class Fragment2 extends Fragment implements PopupMenu.OnMenuItemClickList
         });
 
         // Sort by functionality
-        ImageButton btnSortRequestsBy = fragment2View.findViewById(R.id.btnSortRequestsBy);
+        ImageView btnSortRequestsBy = fragment2View.findViewById(R.id.btnSortRequestsBy);
         btnSortRequestsBy.setOnClickListener(v -> showPopupMenu());
 
         // This sets up a settings menu icon on the right side of the toolbar

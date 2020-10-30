@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:id="@+id/scannerInfo"
+    android:iconTint="@color/color_white"
+    android:icon="@color/color_white"
     android:title="@string/string_info">
 
 </item>

@@ -5,6 +5,7 @@
     android:id="@+id/constraintParent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/browser_actions_bg_grey"
     tools:visibility="invisible">
 
     <androidx.appcompat.widget.Toolbar
@@ -23,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="sans-serif"
         android:text="@string/signup_title"
         android:textSize="22sp"
@@ -47,8 +48,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSignupSubtitle">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,7 +63,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:hint="@string/emailHint"
                 app:errorEnabled="true"
@@ -88,7 +88,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:hint="@string/passwordHint"
                 app:endIconDrawable="@drawable/ic_make_password_visible"
                 app:errorEnabled="true"
@@ -114,7 +114,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:hint="@string/confirm_password_hint"
                 app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="@+id/passSignupTextField"
@@ -139,7 +139,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:hint="@string/name_string"
                 app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="@+id/confirmPassTextField"
@@ -166,7 +166,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:hint="@string/phone_hint"
                 app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="@+id/nameTextField"
@@ -190,7 +190,7 @@
                 android:id="@+id/tvWhatBloodType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/what_blood_Type"
                 android:textColor="@color/colorPrimaryDark"
@@ -202,7 +202,7 @@
                 android:id="@+id/radioBloodType"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/tvWhatBloodType"
                 app:layout_constraintTop_toBottomOf="@+id/tvWhatBloodType">
@@ -235,8 +235,8 @@
                     android:id="@+id/radioTypeNotSure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/bloodTypeNotSure"
-                    android:checked="true"/>
+                    android:checked="true"
+                    android:text="@string/bloodTypeNotSure" />
 
             </RadioGroup>
 
@@ -257,7 +257,7 @@
                 android:id="@+id/radioRH"
                 android:layout_width="395dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="@+id/tvWhatRH"
                 app:layout_constraintTop_toBottomOf="@+id/tvWhatRH">
 
@@ -277,8 +277,8 @@
                     android:id="@+id/radioRHNotSure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/not_sure_RH"
-                    android:checked="true"/>
+                    android:checked="true"
+                    android:text="@string/not_sure_RH" />
 
             </RadioGroup>
 

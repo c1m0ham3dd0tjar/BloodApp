@@ -63,7 +63,7 @@ public class ScannerActivity extends AppCompatActivity {
         // Set toolbar navigation
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_action_back));
-        toolbar.setTitleTextColor(0xFFFFFFFF);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.color_white));
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,6 +191,7 @@ public class ScannerActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_scanner, menu);
+
         return true;
     }
 
