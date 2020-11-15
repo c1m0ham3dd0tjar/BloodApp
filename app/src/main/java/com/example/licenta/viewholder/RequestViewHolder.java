@@ -12,8 +12,8 @@ public class RequestViewHolder extends RecyclerView.ViewHolder {
     public TextView tvTitle, tvCompatibleBloodTypes, tvUnitsNeeded, tvShowRequiredDate;
     public String unitsNeeded, bloodtype, requesterId, requesterContactNumber, requiredDate, compatibleTypes, donationCenterName;
     public int patientAge;
-    public ImageView btnShare;
-    public MaterialButton btnOpenRequestDetails;
+    public ImageView btnShare, btnDeleteRequest;
+    public MaterialButton btnOpenRequestDetails, btnSearchDonors;
 
 
     public RequestViewHolder(@NonNull View itemView) {
@@ -25,5 +25,7 @@ public class RequestViewHolder extends RecyclerView.ViewHolder {
         tvShowRequiredDate = itemView.findViewById(R.id.tvShowRequiredDate);
         tvCompatibleBloodTypes = itemView.findViewById(R.id.tvCompatibleBloodTypes);
         btnOpenRequestDetails = itemView.findViewById(R.id.btnOpenRequestDetails);
+        btnSearchDonors = itemView.findViewById(R.id.btnSearchDonors);
+        btnDeleteRequest = itemView.findViewById(R.id.btnDeleteRequest);
     }
 }

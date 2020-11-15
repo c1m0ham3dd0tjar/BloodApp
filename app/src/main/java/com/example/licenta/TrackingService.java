@@ -91,7 +91,7 @@ public class TrackingService extends Service {
         LocationRequest request = new LocationRequest();
 
         // specify how often your app should request the device's location
-        request.setInterval(100); // !!!!!!!!! Cat de des
+        request.setInterval(1000000); // !!!!!!!!! Cat de des
 
         // Get the most accurate location data available
         request.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);

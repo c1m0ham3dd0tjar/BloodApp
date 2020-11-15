@@ -137,7 +137,7 @@ public class Fragment3 extends Fragment {
                 holder.btnDeleteAppointment.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(requireContext());
+                        MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(getActivity());
                         dialog.setTitle(getResources().getString(R.string.string_delete_appointment))
                                 .setMessage(getResources().getString(R.string.string_are_you_sure))
                                 .setPositiveButton(getResources().getString(R.string.confirmation), new DialogInterface.OnClickListener() {

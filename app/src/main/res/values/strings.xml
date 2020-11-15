@@ -185,6 +185,9 @@
     <string name="string_app_title">BloodApp</string>
     <string name="string_donate">Donează</string>
     <string name="string_confirmation">Confirmare</string>
+    <string name="string_search_donor">Caută donatori</string>
+    <string name="string_delete_request_confirmation">Sunteți sigur ca doriți să anulați solicitarea?</string>
+    <string name="string_no_requests_info">În acest moment, nu exista nicio solicitare.</string>
 
 
 </resources>

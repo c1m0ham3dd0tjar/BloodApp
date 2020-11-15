@@ -53,6 +53,9 @@ public class CreateRequestActivity extends AppCompatActivity {
     public static final String BLOOD_TYPE_AB_MINUS = "AB(IV)-";
     public static final String BLOOD_TYPE_AB_PLUS = "AB(IV)+";
 
+    public static final String RH_POSITIVE = "Positive";
+    public static final String RH_NEGATIVE  = "Negative";
+
     private static final String TAG = "";
     private Spinner spinnerBloodType, spinnerLocations;
     private ElegantNumberButton elegantButton;
@@ -211,6 +214,8 @@ public class CreateRequestActivity extends AppCompatActivity {
 
             List<String> compatibleBloodTypes = new ArrayList<>(getCompatibleBloodTypes(bloodType));
 
+            String key = FirebaseDatabase.getInstance().getReference("Requests").push().getKey();
+
             Request request = new Request(
                     bloodType,
                     bloodUnitsNeeded,
@@ -221,10 +226,11 @@ public class CreateRequestActivity extends AppCompatActivity {
                     contactPhone,
                     compatibleBloodTypes,
                     requiredUptoDate.toString(),
-                    requesterId
+                    requesterId,
+                    key
             );
 
-            String key = FirebaseDatabase.getInstance().getReference("Requests").push().getKey();
+
             if (currentUser != null) {
                 // User is signed in
                 assert key != null;

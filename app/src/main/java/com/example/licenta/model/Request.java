@@ -14,12 +14,13 @@ public class Request {
     private List<String> compatibleBloodTypes;
     private String requiredUptoDate;
     private String requesterId;
+    private String key;
 
     public Request() {
     }
 
     public Request(String bloodType, int bloodUnitsNeeded, String location, String patientName, int patientAge, String patientGender,
-                   String contactPhone, List<String> compatibleBloodTypes, String requiredUptoDate,  String requesterId) {
+                   String contactPhone, List<String> compatibleBloodTypes, String requiredUptoDate,  String requesterId, String key) {
         this.bloodType = bloodType;
         this.bloodUnitsNeeded = bloodUnitsNeeded;
         this.location = location;
@@ -30,6 +31,7 @@ public class Request {
         this.compatibleBloodTypes = compatibleBloodTypes;
         this.requiredUptoDate = requiredUptoDate;
         this.requesterId = requesterId;
+        this.key = key;
     }
 
     public String getBloodType() {
@@ -110,6 +112,14 @@ public class Request {
 
     public void setRequesterId(String requesterId) {
         this.requesterId = requesterId;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }
 

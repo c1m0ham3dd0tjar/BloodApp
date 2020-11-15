@@ -9,7 +9,7 @@ import com.example.licenta.R;
 
 public class UserViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView tvUserName;
+    public TextView tvUserName, tvDistance;
     public TextView tvUserBloodType;
     public TextView tvUserBloodType2;
 
@@ -18,7 +18,6 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         tvUserName = itemView.findViewById(R.id.tvUserName);
-        tvUserBloodType = itemView.findViewById(R.id.tvUserBloodType);
-        tvUserBloodType2 = itemView.findViewById(R.id.tvUserBloodType2);
+        tvDistance = itemView.findViewById(R.id.tvDistance);
     }
 }
