@@ -188,6 +188,10 @@
     <string name="string_search_donor">Caută donatori</string>
     <string name="string_delete_request_confirmation">Sunteți sigur ca doriți să anulați solicitarea?</string>
     <string name="string_no_requests_info">În acest moment, nu exista nicio solicitare.</string>
+    <string name="string_last_donation">Ultima donare: </string>
+    <string name="fcm_message">fcm_message</string>
+    <string name="default_notification_channel_id">default_notification_channel_id</string>
+    <string name="string_compatible_donors">Donatori compatibili aflați în apropiere</string>
 
 
 </resources>
