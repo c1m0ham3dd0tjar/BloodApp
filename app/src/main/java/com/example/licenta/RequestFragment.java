@@ -24,6 +24,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -187,7 +188,6 @@ public class RequestFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull UserViewHolder holder, int i, @NonNull User user) {
                 holder.tvUserName.setText(user.getName());
-                holder.tvUserBloodType2.setText(user.getBloodType());
 
                 progressBar.setVisibility(View.INVISIBLE);
             }
@@ -380,7 +380,7 @@ public class RequestFragment extends Fragment {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     User user = data.getValue(User.class);
 
-                    Log.d("allen", "location: " + data.child("Location").getValue().toString());
+                    Log.d("allen", "location: " + Objects.requireNonNull(data.child("Location").getValue()).toString());
 
 
                     assert user != null;
@@ -543,6 +543,13 @@ class DisplayData extends RecyclerView.Adapter<UserViewHolder> implements Filter
         User user = originalList.get(position);
 
         holder.tvUserName.setText(user.getName());
+        holder.tvDonorPhoneNumber.setText(user.getPhone());
+
+        holder.tvLastDonationConfirmedDate.setText(R.string.string_last_donation);
+        if (user.getLastDonationConfirmed().equals("none"))
+            holder.tvLastDonationConfirmedDate.append(" -");
+        else
+            holder.tvLastDonationConfirmedDate.append(" " + user.getLastDonationConfirmed());
 
         Location userLocation = user.getLocation();
 
@@ -559,7 +566,7 @@ class DisplayData extends RecyclerView.Adapter<UserViewHolder> implements Filter
 
                         double dist = (int) userLocation.distanceTo(donationCenterLocation) / 1000;
 
-                        holder.tvDistance.setText(String.valueOf(dist));
+                        holder.tvDistance.setText(String.valueOf(dist) + "km");
 
                         break;
                     }
@@ -571,6 +578,8 @@ class DisplayData extends RecyclerView.Adapter<UserViewHolder> implements Filter
                 Log.e("RequestFragment", error.toString());
             }
         });
+
+        setBloodTypeImage(user.getBloodType(), user.getRH(), holder.imgDonorBloodType);
 
 
 
@@ -610,5 +619,38 @@ class DisplayData extends RecyclerView.Adapter<UserViewHolder> implements Filter
             }
 
         };
+    }
+
+    public void setBloodTypeImage(String bloodType, String rh, ImageView imgViewBloodType) {
+
+        switch(bloodType) {
+            case "0(I)":
+                if (rh.equals("Pozitiv"))
+                    imgViewBloodType.setImageDrawable(context.getDrawable(R.drawable.opositive));
+                else
+                    imgViewBloodType.setImageDrawable(context.getDrawable(R.drawable.onegative));
+                break;
+
+            case "A(II)":
+                if (rh.equals("Pozitiv"))
+                    imgViewBloodType.setImageDrawable(context.getDrawable(R.drawable.apositive));
+                else
+                    imgViewBloodType.setImageDrawable(context.getDrawable(R.drawable.anegative));
+                break;
+
+            case "B(III)":
+                if (rh.equals("Pozitiv"))
+                    imgViewBloodType.setImageDrawable(context.getDrawable(R.drawable.bpositive));
+                else
+                    imgViewBloodType.setImageDrawable(context.getDrawable(R.drawable.bnegative));
+                break;
+
+            case "AB(IV)":
+                if (rh.equals("Pozitiv"))
+                    imgViewBloodType.setImageDrawable(context.getDrawable(R.drawable.abpositive));
+                else
+                    imgViewBloodType.setImageDrawable(context.getDrawable(R.drawable.abnegative));
+                break;
+        }
     }
 }

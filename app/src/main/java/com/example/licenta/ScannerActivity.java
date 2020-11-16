@@ -34,9 +34,12 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
@@ -147,31 +150,46 @@ public class ScannerActivity extends AppCompatActivity {
                     String currentUserUid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference("User/" + currentUserUid + "/Appointments/" + appointmentKey);
 
-                    ref.child("donationConfirmed").setValue(true).addOnSuccessListener(new OnSuccessListener<Void>() {
+
+                    ref.child("donationConfirmed").setValue(true).addOnSuccessListener(aVoid -> {
+                        //Toast.makeText(ScannerActivity.this, getResources().getString(R.string.string_donation_confirmed), Toast.LENGTH_SHORT).show();
+                        MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(ScannerActivity.this);
+                        dialog.setTitle(getResources().getString(R.string.confirmation))
+                                .setPositiveButton(getResources().getString(R.string.string_ok), (dialog1, which) -> startActivity(new Intent(ScannerActivity.this, MainActivity.class)))
+                                .setMessage(qrCode)
+                                .show();
+                        Log.e("ScanConfirmSucces", "Confirmed.");
+                    }).addOnFailureListener(e -> {
+                        Toast.makeText(ScannerActivity.this, getResources().getString(R.string.string_error), Toast.LENGTH_SHORT).show();
+                        Log.e("ScanConfirmFailure", e.toString());
+                    });
+
+                    // Get the date from the confirmed appointment donation and add it to the user;
+                    DatabaseReference ref2 = FirebaseDatabase.getInstance().getReference("User/" + currentUserUid);
+                    ref.addValueEventListener(new ValueEventListener() {
                         @Override
-                        public void onSuccess(Void aVoid) {
-                            //Toast.makeText(ScannerActivity.this, getResources().getString(R.string.string_donation_confirmed), Toast.LENGTH_SHORT).show();
-                            MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(ScannerActivity.this);
-                            dialog.setTitle(getResources().getString(R.string.confirmation))
-                                    .setPositiveButton(getResources().getString(R.string.string_ok), new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            startActivity(new Intent(ScannerActivity.this, MainActivity.class));
-                                        }
-                                    })
-                                    .setMessage(qrCode)
-                                    .show();
-                            Log.e("ScanConfirmSucces", "Confirmed.");
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            long year = (long) snapshot.child("year").getValue();
+                            long month = (long) snapshot.child("month").getValue();
+                            long day = (long) snapshot.child("day").getValue();
+
+                            Log.d("allen", "long:"  + year + " " + month + " " + day);
+
+
+
+
+
+                            LocalDate date = LocalDate.of(Integer.parseInt(String.valueOf(year)), Integer.parseInt(String.valueOf(month)), Integer.parseInt(String.valueOf(day)));
+
+                            ref2.child("lastDonationConfirmed").setValue(date.toString());
                         }
 
-                        ;
-                    }).addOnFailureListener(new OnFailureListener() {
                         @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(ScannerActivity.this, getResources().getString(R.string.string_error), Toast.LENGTH_SHORT).show();
-                            Log.e("ScanConfirmFailure", e.toString());
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Log.e("addLastDonationDateToUser", error.toString());
                         }
                     });
+
                 }
 
             }
