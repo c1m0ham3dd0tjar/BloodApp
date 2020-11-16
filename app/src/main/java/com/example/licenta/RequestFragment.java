@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,16 +31,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.licenta.model.DonationCenter;
 import com.example.licenta.model.Request;
 import com.example.licenta.model.User;
-import com.example.licenta.viewholder.DonationCenterViewHolder;
 import com.example.licenta.viewholder.RequestViewHolder;
 import com.example.licenta.viewholder.UserViewHolder;
-import com.facebook.share.model.ShareLinkContent;
-import com.facebook.share.widget.ShareDialog;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.github.ybq.android.spinkit.SpinKitView;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -52,12 +46,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class RequestFragment extends Fragment {
@@ -107,11 +97,10 @@ public class RequestFragment extends Fragment {
         tvNoRequestsInfo = view.findViewById(R.id.tvNoRequestsInfo);
         spinner = view.findViewById(R.id.spin_kit);
 
-
-        donationCenter = new DonationCenter();
-
         constraintLayoutDonors = view.findViewById(R.id.constraintLayoutDonors);
         btnShowMyRequests = view.findViewById(R.id.btnShowMyRequests);
+
+        donationCenter = new DonationCenter();
 
         // Retrieve and cache the system's default "short" animation time.
         shortAnimationDuration = getActivity().getResources().getInteger(android.R.integer.config_shortAnimTime);
@@ -285,12 +274,6 @@ public class RequestFragment extends Fragment {
                     // sharePhoto();
                 });*/
 
-                holder.btnSearchDonors.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        recyclerViewMyRequests.setVisibility(View.GONE);
-                    }
-                });
 
                 holder.btnDeleteRequest.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -321,13 +304,10 @@ public class RequestFragment extends Fragment {
                     public void onClick(View v) {
                         recyclerViewMyRequests.setVisibility(View.GONE);
 
-                        Location donationCenterLocation = getRequestLocation(request);
-                        showAvailableDonors(request.getBloodType(), donationCenterLocation);
-
+                        // Get Location retrieves the name of the donation center
+                        showAvailableDonors(request.getBloodType(), request.getLocation());
                     }
                 });
-
-
             }
 
             @NonNull
@@ -341,7 +321,6 @@ public class RequestFragment extends Fragment {
 
             @Override
             public int getItemCount() {
-                Log.d("allen", super.getItemCount() + "");
                 return super.getItemCount();
             }
         };
@@ -358,13 +337,18 @@ public class RequestFragment extends Fragment {
         String donationCenterName = request.getLocation();
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("DonationCenter");
+        Log.d("allen", "after ref");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.d("allen", "OnDataChange");
                 for (DataSnapshot data : snapshot.getChildren()) {
+                    Log.d("allen", "for");
                     if (Objects.requireNonNull(data.child("name").getValue()).toString().equals(donationCenterName)) {
-                        donationCenter = new DonationCenter();
+                        Log.d("allen", "if");
                         donationCenter = data.getValue(DonationCenter.class);
+                        Log.d("allen", donationCenter.getPhone1());
+                        Log.d("allen", "this is name " + donationCenterName + " this is from the database " + data.child("name").getValue().toString());
                         break;
                     }
                 }
@@ -376,6 +360,8 @@ public class RequestFragment extends Fragment {
             }
         });
 
+        Log.d("allen", "outside ref" + donationCenter.getPhone1());
+
         Location location = new Location("");
         location.setLongitude(donationCenter.getLongitude());
         location.setLatitude(donationCenter.getLatitude());
@@ -383,7 +369,7 @@ public class RequestFragment extends Fragment {
         return location;
     }
 
-    private void showAvailableDonors(String patientBloodType, Location donationCenterLocation) {
+    private void showAvailableDonors(String patientBloodType, String donationCenterName) {
 
         spinner.setVisibility(View.VISIBLE);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("User");
@@ -394,7 +380,24 @@ public class RequestFragment extends Fragment {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     User user = data.getValue(User.class);
 
+                    Log.d("allen", "location: " + data.child("Location").getValue().toString());
+
+
                     assert user != null;
+
+                    Log.d("allen", "crapa 1");
+                    Location userLocation = new Location("");
+
+                    userLocation.setLongitude((Double) data.child("Location/longitude").getValue());
+                    userLocation.setLatitude((Double) data.child("Location/latitude").getValue());
+                    Log.d("allen", "crapa 2");
+
+
+                    Log.d("allen", "userLocation: " + userLocation.toString());
+
+                    user.setLocation(userLocation);
+
+                    Log.d("allen", "showAvailableDonors: user: " + user.toString());
                     if (user.isAvailable()) {
                         if (donorIsCompatible(user.getBloodType(), user.getRH(), patientBloodType))
                             usersList.add(user);
@@ -408,7 +411,7 @@ public class RequestFragment extends Fragment {
 //                    });
                 }
 
-                dataAdapter = new DisplayData(getActivity(), usersList, donationCenterLocation);
+                dataAdapter = new DisplayData(getActivity(), usersList, donationCenterName);
 
                 dataAdapter.notifyDataSetChanged();
                 recyclerViewDonors.setAdapter(dataAdapter);
@@ -515,7 +518,7 @@ class DisplayData extends RecyclerView.Adapter<UserViewHolder> implements Filter
     private List<User> originalList = new ArrayList<>();
     private List<User> list = new ArrayList<>();
     private Context context;
-    private Location donationCenterLocation;
+    private String donationCenterName;
 
     @NonNull
     @Override
@@ -528,11 +531,11 @@ class DisplayData extends RecyclerView.Adapter<UserViewHolder> implements Filter
     // Sending here as parameter the location of the donation center where the request is assigned, so I can calculate distance between
     // donor and centre and display it in the recycler view.
 
-    public DisplayData(Context context, List<User> usersList, Location donationCenterLocation) {
+    public DisplayData(Context context, List<User> usersList, String donationCenterName) {
         this.context = context;
         this.originalList = usersList;
         this.list = usersList;
-        this.donationCenterLocation = donationCenterLocation;
+        this.donationCenterName = donationCenterName;
     }
 
     @Override
@@ -541,11 +544,34 @@ class DisplayData extends RecyclerView.Adapter<UserViewHolder> implements Filter
 
         holder.tvUserName.setText(user.getName());
 
-        Location userLocation;
+        Location userLocation = user.getLocation();
 
-        userLocation = user.getLocation();
-        double dist = userLocation.distanceTo(donationCenterLocation);
-        holder.tvDistance.setText(String.valueOf(dist).substring(0, 4));
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("DonationCenter");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot data : snapshot.getChildren()) {
+                    if (Objects.requireNonNull(data.child("name").getValue()).toString().equals(donationCenterName)) {
+                        Location donationCenterLocation = new Location("");
+
+                        donationCenterLocation.setLatitude((Double) data.child("latitude").getValue());
+                        donationCenterLocation.setLongitude((Double) data.child("longitude").getValue());
+
+                        double dist = (int) userLocation.distanceTo(donationCenterLocation) / 1000;
+
+                        holder.tvDistance.setText(String.valueOf(dist));
+
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("RequestFragment", error.toString());
+            }
+        });
+
 
 
     }
