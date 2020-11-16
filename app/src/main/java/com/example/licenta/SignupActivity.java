@@ -167,7 +167,8 @@ public class SignupActivity extends AppCompatActivity {
                                     bloodType,
                                     RH,
                                     isAvailable,
-                                    isNotUnderAge
+                                    isNotUnderAge,
+                                    "none"
                             );
 
                             FirebaseDatabase.getInstance().getReference("User")
